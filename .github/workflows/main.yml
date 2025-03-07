@@ -1,4 +1,14 @@
-mkdir docs
-touch docs/index.md docs/ai-marketing-strategies.md docs/best-seo-practices.md
-echo "# AI Marketing" > docs/ai-marketing-strategies.md
-echo "# Best SEO Practices" > docs/best-seo-practices.md
+name: Documentation Setup
+on: [push]
+
+jobs:
+  setup-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create documentation structure
+        run: |
+          mkdir -p docs
+          touch docs/index.md docs/ai-marketing-strategies.md docs/best-seo-practices.md
+          echo "# AI Marketing" > docs/ai-marketing-strategies.md
+          echo "# Best SEO Practices" > docs/best-seo-practices.md
